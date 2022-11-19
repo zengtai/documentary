@@ -1,26 +1,89 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.wrapper {
+  @apply flex min-h-screen flex-col space-y-4 bg-slate-800 text-sm text-blue-200;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.container {
+  @apply mx-auto;
 }
 
-* {
-  box-sizing: border-box;
+.header {
+  @apply bg-blue-600 p-4;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.header ul {
+  @apply flex space-x-4;
+}
+
+.social-link {
+  @apply my-4 flex justify-center space-x-2;
+}
+
+.social-link a {
+  @apply underline underline-offset-4 hover:text-lime-200;
+}
+
+.footer {
+  @apply bg-slate-700 p-4 text-center text-xs uppercase text-slate-500;
+}
+
+.main {
+  @apply grow;
+}
+.main h1 {
+  @apply my-4 text-xl font-bold;
+}
+
+.main .title {
+  @apply flex grow flex-col space-y-1;
+}
+.title h3 {
+  @apply select-all;
+}
+.title .chinese {
+  @apply text-xl font-bold;
+}
+.title .english {
+  @apply font-serif;
+}
+.table-container {
+  @apply mx-4 overflow-hidden rounded-lg;
+}
+.main thead tr {
+  @apply shadow-md;
+}
+.main tbody tr {
+  @apply transform bg-blue-800 duration-300 ease-in-out even:bg-blue-900 hover:text-lime-300 even:hover:bg-blue-700;
+}
+
+.date {
+  @apply w-24 font-serif;
+}
+.weibo-link {
+  @apply w-20 text-xs;
+}
+.weibo-link a {
+  @apply inline-block h-6 w-6 bg-weibo bg-contain bg-left bg-no-repeat pl-6;
+}
+.download {
+  @apply rounded bg-lime-400 px-2 py-1 text-xs font-bold text-lime-900;
+}
+.video-link {
+  @apply flex space-x-2 text-xs;
+}
+.video-link a {
+  @apply rounded border border-white/50 px-2 py-1 text-xs text-white;
+}
+
+.acfun a {
+  @apply bg-red-500 text-white;
+}
+.weibo a {
+  @apply bg-red-600;
+}
+.bilibili a {
+  @apply bg-sky-400;
 }
