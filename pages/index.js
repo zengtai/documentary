@@ -145,6 +145,15 @@ export default function Home({ data }) {
           </table>
         </div>
       </div>
+      <p className="source-info">
+        <span>
+          本页内容基于：
+          <a href="https://altavistasshh.github.io/sshh/sshh.htm">
+            https://altavistasshh.github.io/sshh/sshh.htm
+          </a>
+          创建
+        </span>
+      </p>
     </Layout>
   );
 }
