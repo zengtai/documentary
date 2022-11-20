@@ -57,10 +57,13 @@
 .table-container {
   @apply mx-4 overflow-hidden rounded-lg;
 }
-.main thead tr {
+.main header ul {
   @apply border-b border-blue-300;
 }
-.main tbody tr {
+.list {
+  @apply w-full divide-y divide-blue-700;
+}
+.list li {
   @apply transform bg-blue-800 duration-300 ease-in-out even:bg-blue-900 hover:text-lime-300 even:hover:bg-blue-700;
 }
 

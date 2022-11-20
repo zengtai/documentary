@@ -18,6 +18,7 @@ export default function Home({ data }) {
   );
   let ordered = m.concat(n);
 
+  // 为了让key好看一点，hash一下
   const hashCode = (s) =>
     s.split("").reduce((a, b) => ((a << 5) - a + b.charCodeAt(0)) | 0, 0);
 
@@ -80,19 +81,19 @@ export default function Home({ data }) {
           </dd>
         </dl>
         <div className="table-container">
-          <table className="w-full">
-            <thead>
-              <tr className="flex w-full items-center space-x-5 bg-blue-900 p-2 text-left text-xs">
-                <th className="w-20">片厂</th>
-                <th className="grow">片名</th>
-                <th className="w-12">年份</th>
-                <th className="w-24">字幕发布</th>
-                <th className="w-20">微博</th>
-                <th className="w-48">视频</th>
-                <th className="w-20">ED2K</th>
-              </tr>
-            </thead>
-            <tbody className="w-full divide-y divide-blue-700">
+          <div className="w-full">
+            <header>
+              <ul className="flex w-full items-center space-x-5 bg-blue-900 p-2 text-left text-xs">
+                <li className="w-20">片厂</li>
+                <li className="grow">片名</li>
+                <li className="w-12">年份</li>
+                <li className="w-24">字幕发布</li>
+                <li className="w-20">微博</li>
+                <li className="w-48">视频</li>
+                <li className="w-20">ED2K</li>
+              </ul>
+            </header>
+            <ul className="list">
               {ordered
                 .sort((a, b) =>
                   new Date(formatDate(a.zimufabu)) <
@@ -101,20 +102,20 @@ export default function Home({ data }) {
                     : -1
                 )
                 .map((i, index) => (
-                  <tr
+                  <li
                     className="flex w-full items-center space-x-5 p-2 hover:bg-blue-700"
                     key={hashCode(i.eng + index)}
                   >
-                    <td className="w-20">{i.pianchang}</td>
-                    <td className="title">
+                    <div className="w-20">{i.pianchang}</div>
+                    <div className="title">
                       <h3 className="chinese">{i.all}</h3>
                       <h3 className="english">{i.eng}</h3>
-                    </td>
-                    <td className="year w-12">{i.nianfen ?? `-`}</td>
-                    <td className="date">
+                    </div>
+                    <div className="year w-12">{i.nianfen ?? `-`}</div>
+                    <div className="date">
                       {i.zimufabu ? formatDate(i.zimufabu) : `-`}
-                    </td>
-                    <td className="weibo-link">
+                    </div>
+                    <div className="weibo-link">
                       {i.weibo ? (
                         <Link href={i.weibo}>
                           <span className="sr-only">Weibo</span>
@@ -122,15 +123,15 @@ export default function Home({ data }) {
                       ) : (
                         `-`
                       )}
-                    </td>
-                    <td className="w-48">
+                    </div>
+                    <div className="w-48">
                       {i.shipin.length !== 0 ? (
                         <ul className="video-link">{getLink(i)}</ul>
                       ) : (
                         `-`
                       )}
-                    </td>
-                    <td className="w-20">
+                    </div>
+                    <div className="w-20">
                       {i.ed2k !== null ? (
                         <a className="download" href={i.ed2k}>
                           ED2K
@@ -138,11 +139,11 @@ export default function Home({ data }) {
                       ) : (
                         `-`
                       )}
-                    </td>
-                  </tr>
+                    </div>
+                  </li>
                 ))}
-            </tbody>
-          </table>
+            </ul>
+          </div>
         </div>
       </div>
       <p className="source-info">
